@@ -160,7 +160,7 @@ class ReactSpeedometer extends React.Component {
           PROPS.segments
         ),
         // color range for the segments
-        arcColorFn: d3InterpolateHsl(
+        arcColorFn: PROPS.arcColorFn || d3InterpolateHsl(
           d3Rgb(PROPS.startColor),
           d3Rgb(PROPS.endColor)
         ),
@@ -615,6 +615,7 @@ ReactSpeedometer.propTypes = {
   needleColor: PropTypes.string.isRequired,
   startColor: PropTypes.string.isRequired,
   endColor: PropTypes.string.isRequired,
+  arcColorFn: PropTypes.function,
 
   // needle transition type and duration
   needleTransition: PropTypes.string.isRequired,
