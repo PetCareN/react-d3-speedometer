@@ -236,7 +236,7 @@ class ReactSpeedometer extends React.Component {
         //   // we have this specific `d3 ticks` behaviour stepping in a specific way
         //   ticks = [config.minValue, config.maxValue]
         // }
-        ticks = calculateTicks(scale, {
+        ticks = this.props.ticks || calculateTicks(scale, {
           min: config.minValue,
           max: config.maxValue,
           segments: config.maxSegmentLabels,
@@ -607,6 +607,7 @@ ReactSpeedometer.propTypes = {
   fluidWidth: PropTypes.bool.isRequired,
 
   // segments to show in the speedometer
+  ticks: PropTypes.any,
   segments: PropTypes.number.isRequired,
   // maximum number of labels to be shown
   maxSegmentLabels: PropTypes.number.isRequired,
